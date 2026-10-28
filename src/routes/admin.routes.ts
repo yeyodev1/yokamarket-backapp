@@ -3,6 +3,8 @@ import { authMiddleware } from "../middlewares/auth.middleware";
 import * as orderController from "../controllers/order.controller";
 import * as catalogController from "../controllers/catalog.controller";
 import * as settingsController from "../controllers/settings.controller";
+import * as uploadController from "../controllers/upload.controller";
+import { imageUpload } from "../middlewares/upload.middleware";
 
 const router = Router();
 
@@ -26,5 +28,8 @@ router.patch("/categories/:id", catalogController.updateCategory);
 router.delete("/categories/:id", catalogController.deleteCategory);
 
 router.patch("/settings", settingsController.update);
+
+router.get("/uploads/status", uploadController.status);
+router.post("/uploads", imageUpload.single("file"), uploadController.uploadImage);
 
 export default router;
