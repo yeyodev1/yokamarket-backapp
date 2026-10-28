@@ -21,6 +21,11 @@ export function globalErrorHandler(error: any, _req: Request, res: Response, _ne
     return;
   }
 
+  if (error?.name === "MulterError") {
+    res.status(400).json({ message: error.code === "LIMIT_FILE_SIZE" ? "La foto pesa más de 10 MB" : "No se pudo leer la foto" });
+    return;
+  }
+
   if (error?.name === "CastError") {
     res.status(400).json({ message: "Identificador inválido" });
     return;
