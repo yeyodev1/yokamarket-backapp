@@ -42,6 +42,10 @@ export const env = {
   // "box": Cajita de pagos incrustada en la tienda (confirma en paymentbox.…/api/confirm).
   // "redirect": Botón de pago por redirección (Prepare + pay.…/api/button/V2/Confirm).
   PAYPHONE_MODE: optional("PAYPHONE_MODE", "box") as "box" | "redirect",
+  // Cloudinary: subida de fotos desde el panel (opcional; sin esto el panel solo acepta enlaces).
+  CLOUDINARY_CLOUD_NAME: optional("CLOUDINARY_CLOUD_NAME", ""),
+  CLOUDINARY_API_KEY: optional("CLOUDINARY_API_KEY", ""),
+  CLOUDINARY_API_SECRET: optional("CLOUDINARY_API_SECRET", ""),
   RESEND_API_KEY: optional("RESEND_API_KEY", ""),
   RESEND_FROM_EMAIL: optional("RESEND_FROM_EMAIL", "YOKA Market <onboarding@resend.dev>"),
   NOTIFY_EMAIL: optional("NOTIFY_EMAIL", ""),
